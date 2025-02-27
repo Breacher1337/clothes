@@ -19,7 +19,7 @@ export default function Login() {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             router.push("/dashboard"); // Redirect on success
-        } catch (err) {
+        } catch {
             setError("Invalid email or password");
         }
     };

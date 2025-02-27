@@ -5,7 +5,17 @@ import Image from "next/image";
 import StackedCardsDropdown from "./stackedcards";
 
 export default function Clothes(){
-    const products = [ //id, name color, category, favorite, image,
+    interface Product {
+        id: number;
+        name: string;
+        href: string;
+        imageSrc: string;
+        imageAlt: string;
+        category: string;
+        color: string[];
+    }
+
+    const products: Product[] = [ //id, name color, category, favorite, image,
         {
           id: 1,
           name: "Basic Tee",
@@ -13,9 +23,11 @@ export default function Clothes(){
           imageSrc: "/Home/Showcase.png",
           imageAlt: "Front of men's Basic Tee in black.",
           category: "Top",
-          color: ["Black", "Red", "Blue"],
+          color: ["Black", "White"]
         },
       ];
+
+
       
 
     return(
@@ -23,7 +35,7 @@ export default function Clothes(){
             <SidebarFilters> 
                 <div className="mx-auto px-4 sm:px-6 lg:px-8 bg-white w-full ">
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                    {products.map((product: any) => (
+                    {products.map((product: Product) => (
                         <div key={product.id} className="group relative box border-grey border-2 p-2 rounded-lg ">
                             <Image
                                 alt={product.imageAlt}
@@ -41,7 +53,7 @@ export default function Clothes(){
                                     </a>
                                 </h3>
                                 <div className="mt-1 flex justify-between">
-                                    {product.color.map((color: any) => (
+                                    {product.color.map((color: string) => (
                                         
                                         <p key={color} className=" mr-1 text-sm text-gray-500">{color}</p>
                                     ))}

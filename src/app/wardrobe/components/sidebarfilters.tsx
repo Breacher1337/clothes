@@ -8,22 +8,18 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
 } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid'
 import SearchBarWithFilter from '@/app/components/searchbar'
 
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
+// const sortOptions = [
+//   { name: 'Most Popular', href: '#', current: true },
+//   { name: 'Best Rating', href: '#', current: false },
+//   { name: 'Newest', href: '#', current: false },
+//   { name: 'Price: Low to High', href: '#', current: false },
+//   { name: 'Price: High to Low', href: '#', current: false },
+// ]
 const subCategories = [
   { name: 'Totes', href: '#' },
   { name: 'Backpacks', href: '#' },
@@ -68,10 +64,6 @@ const filters = [
     ],
   },
 ]
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function SidebarFilters({ children }: { children: React.ReactNode }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)

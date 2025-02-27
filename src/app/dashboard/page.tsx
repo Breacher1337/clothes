@@ -7,8 +7,21 @@ import Topnav from "../components/topnav";
 import { firestore } from "@/lib/firebase";
 
 const DashboardPage = () => {
-  const { user, loading } = useAuthContext();
-  const [userData, setUserData] = useState<any>(null);
+  interface User {
+    uid: string;
+    email: string;
+    displayName?: string;
+  }
+
+  const authContext: { user: User | null; loading: boolean } = useAuthContext() || { user: null, loading: true };
+  const user = authContext?.user;
+  const loading = authContext?.loading;
+  interface UserData {
+    stylePreference?: string;
+    wardrobeCount?: number;
+  }
+
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
 

@@ -1,8 +1,6 @@
-import Link from "next/link";
 import TopNav from "../components/topnav";
 import aboutData from "./about.json";
 import { WavyBackground } from "@/app/components/wavy-background";
-import { FaTwitter, FaInstagram } from "react-icons/fa";
 import Footer from "../components/footer";
 
 export default function Home(){

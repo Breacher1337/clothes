@@ -34,7 +34,7 @@ export default function SignUp() {
 				createdAt: serverTimestamp(),
 			});
 			router.push("/dashboard"); // Redirect to dashboard on successful sign up
-		} catch (err) {
+		} catch {
 			setError("Error signing up. Please try again.");
 		}
 	};
